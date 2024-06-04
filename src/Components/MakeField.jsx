@@ -1,25 +1,26 @@
 import React from "react";
-import { SelectFieldComponent, TextFieldComponent } from "./Fields";
+import { DropDownComponent } from "./Fields/DropDownComponent";
+import { TextFieldComponent } from "./Fields/TextFieldComponent";
 
-export const MakeField = (props) => {
+export const MakeField = ({fieldItem,fieldValue,setFormValues,setValidation,validationMessage}) => {
   return (
     <>
-      {props.control == "TextField" ? (
+      {fieldItem.control == "TextField" && (
         <TextFieldComponent
-          name={props.name}
-          id={props.id}
-          formValue={props.formValue}
-          setFormValues={props.setFormValues}
-          validation={props.validation}
+          fieldItem={fieldItem}
+          formValue={fieldValue}
+          setFormValues={setFormValues}
+          setValidation={setValidation}
+          validation={validationMessage}
         />
-      ) : (
-        <SelectFieldComponent
-          name={props.name}
-          id={props.id}
-          dropdownValues={props.values}
-          formValue={props.formValue}
-          setFormValues={props.setFormValues}
-          validataion={props.validation}
+      )  }
+      { fieldItem.control == "Dropdown" && (
+        <DropDownComponent
+          fieldItem={fieldItem}
+          formValue={fieldValue}
+          setFormValues={setFormValues}
+          setValidation={setValidation}
+          validation={validationMessage}
         />
       )}
     </>

@@ -17,3 +17,10 @@ ValidationRules.set("N", (value) => {
 ValidationRules.set("D", (value) => {
   return !/^[a-zA-Z0-9]+$/.test(value);
 });
+
+export const errorMessages = {
+  "R" : "value is required",
+"E": "Email is not valid",
+"N": "Only numerics allowed",
+"D": "only Digits are allowed"
+}

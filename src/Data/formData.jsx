@@ -22,14 +22,7 @@ export const formData = [
     validation: ["R", "E"],
     order: 1,
   },
-  {
-    id: 4,
-    name: "Gender",
-    control: "Dropdown",
-    validation: ["R"],
-    values: ["Male", "Female"],
-    order: 1,
-  },
+ 
   {
     id: 5,
     name: "Ratini",
@@ -44,4 +37,28 @@ export const formData = [
     validation: ["R", "E"],
     order: 1,
   },
+  {
+    id:7,
+    name: "class",
+    control:"TextField",
+    validation:["R","E"],
+    order:2
+  },
+  {
+    id: 4,
+    name: "Gender",
+    control: "Dropdown",
+    validation: ["R"],
+    values: ["Male", "Female"],
+    order: 1,
+  },
+  {
+    id: 8,
+    name: "Lender",
+    control: "Dropdown",
+    validation: ["R"],
+    values: ["Borrower", "Receiver"],
+    order: 1,
+  },
+  
 ];
