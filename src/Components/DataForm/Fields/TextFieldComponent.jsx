@@ -1,5 +1,5 @@
 import { FormControl, FormControlLabel, FormLabel, Grid, InputLabel, Stack, TextField, Typography } from "@mui/material";
-import { Validations } from "../ValidationRules";
+import { Validations } from "../../ValidationRules";
 
 export const TextFieldComponent = ({
     fieldItem,

@@ -8,11 +8,12 @@ import {
   Typography,
   createTheme,
 } from "@mui/material";
-import React, { useState } from "react";
-import { formData } from "../Data/formData";
+import React, { useContext, useState } from "react";
+import { formData } from "../../Data/formData";
 import { MakeField } from "./MakeField";
-import { Validations } from "./ValidationRules";
+import { Validations } from "../ValidationRules";
 import { Add, CheckCircle } from "@mui/icons-material";
+import { DisplayContext } from "../../Hooks/useDisplay";
 
 /*
   Here, we need to add the styles
@@ -35,6 +36,7 @@ import { Add, CheckCircle } from "@mui/icons-material";
 export const MakeForm = () => {
   const [validation, setValidation] = useState({});
   const [formValues, setFormValues] = useState({});
+  const setDisplayDataForm = useContext(DisplayContext);
 
   const handleSubmit = () => {
     const tempValidation = {};
@@ -83,7 +85,7 @@ export const MakeForm = () => {
           })}
 
           <Grid item xs={6} >
-            <Button variant="outlined" color="warning" startIcon={<Add />}>
+            <Button variant="outlined" color="warning" startIcon={<Add />} onClick={() => setDisplayDataForm(false)}>
               Add Field
             </Button>
           </Grid>

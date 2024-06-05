@@ -1,5 +1,5 @@
 import { FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, Stack } from "@mui/material";
-import { Validations } from "../ValidationRules";
+import { Validations } from "../../ValidationRules";
 
 export const DropDownComponent = ({
     fieldItem,

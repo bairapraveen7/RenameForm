@@ -11,7 +11,10 @@
     "@mui/material": "^5.15.18",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-scripts": "^5.0.0"
+    "react-scripts": "^5.0.0",
+    "react-tag-input": "^6.10.2",
+    "react-tag-input-component": "^2.0.2",
+    "react-tagsinput": "^3.20.3"
   },
   "devDependencies": {
     "@types/react": "18.2.38",
