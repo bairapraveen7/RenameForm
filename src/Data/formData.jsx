@@ -4,21 +4,21 @@ export const formData = [
   {
     id: 1,
     name: "FirstName",
-    control: "TextField",
+    control: "Textfield",
     validation: ["R", "N", "D"],
     order: 1,
   },
   {
     id: 2,
     name: "LastName",
-    control: "TextField",
+    control: "Textfield",
     validation: ["R", "N", "D"],
     order: 1,
   },
   {
     id: 3,
     name: "Email",
-    control: "TextField",
+    control: "Textfield",
     validation: ["R", "E"],
     order: 1,
   },
@@ -26,21 +26,21 @@ export const formData = [
   {
     id: 5,
     name: "Ratini",
-    control: "TextField",
+    control: "Textfield",
     validation: ["R", "E"],
     order: 1,
   },
   {
     id: 6,
     name: "Batini",
-    control: "TextField",
+    control: "Textfield",
     validation: ["R", "E"],
     order: 1,
   },
   {
     id:7,
     name: "class",
-    control:"TextField",
+    control:"Textfield",
     validation:["R","E"],
     order:2
   },
@@ -60,5 +60,5 @@ export const formData = [
     values: ["Borrower", "Receiver"],
     order: 1,
   },
-  
+
 ];

@@ -1,4 +1,5 @@
 import { FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select } from "@mui/material";
+import { Validations } from "../ValidationRules";
 
 export const DropDownComponent = ({
     fieldItem,
@@ -15,12 +16,13 @@ export const DropDownComponent = ({
         id="demo-simple-select-error"
         value={formValue}
         label={fieldItem.name}
+        fullWidth
         onClose={(e) => {
           for (const eachValidation of fieldItem.validation) {
-            if (ValidationRules.get(eachValidation)(e.target.value)) {
+            if (Validations[eachValidation].fn(e.target.value) == true) {
               setValidation((prev) => ({
                 ...prev,
-                [fieldItem.id]: errorMessages[eachValidation]
+                [fieldItem.id]: Validations[eachValidation].message
               })
               )
               break;
