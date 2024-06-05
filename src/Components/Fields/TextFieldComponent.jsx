@@ -13,7 +13,7 @@ export const TextFieldComponent = ({
       alignItems="start"
       spacing={2}
       >
-        <label>{fieldItem.name}</label>
+        <label style={{fontWeight: 'bold'}}>{fieldItem.name}</label>
      
     <TextField
       aria-labelledby="its-the-label"

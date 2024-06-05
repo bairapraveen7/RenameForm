@@ -1,8 +1,9 @@
-import { Box, Button, Container, FormControl, Grid } from "@mui/material";
+import { Box, Button, Container, FormControl, Grid, Typography, createTheme } from "@mui/material";
 import React, { useState } from "react";
 import { formData } from "../Data/formData";
 import { MakeField } from "./MakeField";
 import { Validations } from "./ValidationRules";
+import { lightBlue } from "@mui/material/colors";
 
 /*
   Here, we need to add the styles
@@ -15,6 +16,15 @@ import { Validations } from "./ValidationRules";
 export const MakeForm = () => {
   const [validation, setValidation] = useState({});
   const [formValues, setFormValues] = useState({});
+  const theme = createTheme({
+    palette:{
+      primary:{
+        main: '#f7ede8',
+        mainHeading: '#e69e6e',
+        bgColor:'#f7ede8'
+      }
+    }
+  })
 
   const handleSubmit = () => {
     const tempValidation = {};
@@ -33,6 +43,8 @@ export const MakeForm = () => {
   return (
     <Box>
       <Container sx={{ width: '60%'}}>
+      <Typography sx={{color: theme.palette.primary.mainHeading}} variant="h3">CAA</Typography>
+      <Typography sx={{m: '2rem',p:1, backgroundColor: theme.palette.primary.bgColor}} variant="h4">Dynamic Form</Typography>
       <Grid container spacing={4}>
         {formData.map((eachItem) => {
           return (
@@ -46,7 +58,7 @@ export const MakeForm = () => {
           );
         })}
         <Grid item xs={12}>
-      <Button variant="contained" color="success" onClick={handleSubmit}>
+      <Button sx={{ float: 'right'}} variant="contained" color="success" onClick={handleSubmit}>
         Submit
       </Button>
       </Grid>
