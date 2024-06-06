@@ -35,7 +35,6 @@ import { DisplayContext } from "../../Hooks/useDisplay";
 export const MakeForm = ({formData,formValues,setFormValues}) => {
   const [error, setError] = useState({});
   const setDisplayDataForm = useContext(DisplayContext);
-  const [successMessage,setSuccessMessage] = useState();
 
   const handleSubmit = () => {
     const tempError = {};
@@ -61,7 +60,7 @@ export const MakeForm = ({formData,formValues,setFormValues}) => {
           sx={{ m: 2, color: CAA_theme.palette.primary.mainHeading }}
           variant="h3"
         >
-          CAA
+          POC
         </Typography>
         <Typography
           sx={{
