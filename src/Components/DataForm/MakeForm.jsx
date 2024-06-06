@@ -9,7 +9,6 @@ import {
   createTheme,
 } from "@mui/material";
 import React, { useContext, useState } from "react";
-import { formData } from "../../Data/formData";
 import { MakeField } from "./MakeField";
 import { Validations } from "../ValidationRules";
 import { Add, CheckCircle } from "@mui/icons-material";
@@ -33,7 +32,7 @@ import { DisplayContext } from "../../Hooks/useDisplay";
     },
   });
 
-export const MakeForm = () => {
+export const MakeForm = ({formData}) => {
   const [validation, setValidation] = useState({});
   const [formValues, setFormValues] = useState({});
   const setDisplayDataForm = useContext(DisplayContext);
@@ -83,14 +82,14 @@ export const MakeForm = () => {
               />
             );
           })}
-
+           
           <Grid item xs={6} >
             <Button variant="outlined" color="warning" startIcon={<Add />} onClick={() => setDisplayDataForm(false)}>
               Add Field
             </Button>
           </Grid>
           <Grid item xs={6} >
-            <Button sx={{ float: 'right'}} variant="contained" color="success" onClick={handleSubmit}>
+            <Button   variant="contained" color="success" onClick={handleSubmit}>
               Submit
               <CheckCircle sx={{ mx: 1 }} />
             </Button>

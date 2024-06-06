@@ -23,7 +23,7 @@ import { FFType } from "./FFType";
 import { FFValidation } from "./FFValidation";
 import { FFDropValue } from "./FFDropValue";
 import { FFOrder } from "./FFOrder";
-import { ALPHANUMERIC, DROPDOWN, EMAIL, NUMERIC } from "../../config";
+import { ALPHANUMERIC, DROPDOWN, EMAIL, NUMERIC, TEXTFIELD } from "../../config";
 import { DisplayContext } from "../../Hooks/useDisplay";
 
 const AddFieldTheme = createTheme(CAA_theme);
@@ -33,8 +33,8 @@ export const Wrap = (component) => <Grid item xs={12}>
   {component}
   </Stack></Grid>
 
-export const Form = () => {
-  const [fieldForm,setFieldForm] = useState({});
+export const Form = ({setFormData}) => {
+  const [fieldForm,setFieldForm] = useState({type: TEXTFIELD});
   const [error,setError] = useState({});
   const setDisplayDataForm = useContext(DisplayContext);
 
@@ -43,6 +43,10 @@ export const Form = () => {
     let second = checkValues(fieldForm,setError);
     let third = checkValidations(fieldForm,setError);
     if(first  && second  && third ){
+        setFormData((prev) =>  [
+          ...prev,
+          fieldForm
+        ])
         setDisplayDataForm(true);
     }
   }

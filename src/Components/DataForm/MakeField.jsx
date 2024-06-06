@@ -1,17 +1,21 @@
 import React from "react";
 import { DropDownComponent } from "./Fields/DropDownComponent";
 import { TextFieldComponent } from "./Fields/TextFieldComponent";
+import { DROPDOWN, TEXTFIELD } from "../../config";
+
 
 const MapToComponent = {
-  "Textfield": (props) => <TextFieldComponent {...props} />,
-  "Dropdown": (props) => <DropDownComponent {...props} />
+  [TEXTFIELD]: (props) => <TextFieldComponent {...props} />,
+  [DROPDOWN]: (props) => <DropDownComponent {...props} />
 }
 
 export const MakeField = (props) => {
+  console.log(props)
   return (
     <>
     {
-      MapToComponent[props.fieldItem.control](props)
+      
+      MapToComponent[props.fieldItem.type](props)
     }
        
     </>
