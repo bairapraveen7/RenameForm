@@ -3,7 +3,7 @@ import { Validations } from "../../ValidationRules";
 
 export const DropDownComponent = ({
     fieldItem,
-    formValue,
+    fieldValue,
     error,
     setFormValues,
     setError
@@ -19,7 +19,7 @@ export const DropDownComponent = ({
       <Select
         labelId="demo-simple-select-error-label"
         id="demo-simple-select-error"
-        value={formValue}
+        value={fieldValue}
         label={fieldItem.name}
         onClose={(e) => {
           for (const eachValidation of fieldItem.validations) {

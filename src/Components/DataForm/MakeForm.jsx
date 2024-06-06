@@ -32,10 +32,10 @@ import { DisplayContext } from "../../Hooks/useDisplay";
     },
   });
 
-export const MakeForm = ({formData}) => {
+export const MakeForm = ({formData,formValues,setFormValues}) => {
   const [error, setError] = useState({});
-  const [formValues, setFormValues] = useState({});
   const setDisplayDataForm = useContext(DisplayContext);
+  const [successMessage,setSuccessMessage] = useState();
 
   const handleSubmit = () => {
     const tempError = {};
@@ -48,6 +48,9 @@ export const MakeForm = ({formData}) => {
     });
     if (Object.keys(tempError).length != 0) {
       setError(tempError);
+    }else{
+      setError({});
+      alert("Good!! Data Entered is correctly Validated and sent")
     }
   };
 

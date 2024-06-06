@@ -13,12 +13,13 @@ import { ALPHANUMERIC, EMAIL, NUMERIC, REQUIRED } from "../../config";
 export const FFValidation = ({setFieldForm,error}) => {
     const handleChange = (VALUE) => {
       setFieldForm((prev) => {
-        const tempArray = prev.validations || [];
+        let tempArray = prev.validations;
         if(tempArray.includes(VALUE)){
-          tempArray.filter((v) => v!=VALUE);
+          tempArray = tempArray.filter((v) => v!=VALUE);
         }else{
           tempArray.push(VALUE);
         }
+        console.log(tempArray);
         return {
           ...prev,
           "validations":tempArray

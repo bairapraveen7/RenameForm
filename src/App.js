@@ -7,14 +7,15 @@ import { useState } from "react";
 import { data } from "./Data/formData";
 export default function App() {
   const [displayDataForm,setDisplayDataForm] = useState(true);
-  const [formData,setFormData] = useState(data);
+  const [formData,setFormData] = useState([]);
+  const [formValues,setFormValues] = useState({});
   
   return (
     <DisplayContext.Provider value={setDisplayDataForm}>
     <div className="App">
-      {displayDataForm == true ? <MakeForm formData={formData}/> : <Form setFormData={setFormData}/> }
+      {displayDataForm == true ? <MakeForm formData={formData} formValues={formValues} setFormValues={setFormValues}/> : <Form setFormData={setFormData}/> }
     </div>
     </DisplayContext.Provider>
-    
+  
   );
 }

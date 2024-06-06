@@ -35,7 +35,7 @@ export const Wrap = (component,size) => <Grid item xs={size}>
   </Stack></Grid>
 
 export const Form = ({setFormData}) => {
-  const [fieldForm,setFieldForm] = useState({type: TEXTFIELD});
+  const [fieldForm,setFieldForm] = useState({type: TEXTFIELD,validations: []});
   const [error,setError] = useState({});
   const setDisplayDataForm = useContext(DisplayContext);
 
@@ -106,18 +106,19 @@ const checkValues = (fieldForm,setError) => {
 };
 
 const checkValidations = (fieldForm,setError) => {
-  if(fieldForm.validations == null || (fieldForm.validations.includes(ALPHANUMERIC) && fieldForm.validations.includes(NUMERIC))){
+  if(fieldForm.validations.includes(ALPHANUMERIC) && fieldForm.validations.includes(NUMERIC)){
     setError((prev) => ({
       ...prev,
       "validations": "AlphaNumeric and Numeric can't be checked"
     }))
     return false;
   }
-  if(fieldForm.validations != null && fieldForm.type == DROPDOWN && (fieldForm.validations.includes(ALPHANUMERIC) || fieldForm.validataions.includes(NUMERIC))){
+  if( fieldForm.type == DROPDOWN && (fieldForm.validations.includes(ALPHANUMERIC) || fieldForm.validations.includes(NUMERIC) || fieldForm.validations.includes(EMAIL))){
     setError((prev) => ({
       ...prev,
       "validations":"Alphanumeric and numeric can't be checked at dropdown"
     }))
+    return false;
   }
   return true;
 }

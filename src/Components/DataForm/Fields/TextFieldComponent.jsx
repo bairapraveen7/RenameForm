@@ -4,7 +4,7 @@ import { Validations } from "../../ValidationRules";
 export const TextFieldComponent = ({
     fieldItem,
     error,
-    formValue,
+    fieldValue,
     setFormValues,
     setError
   }) => (
@@ -19,7 +19,7 @@ export const TextFieldComponent = ({
       aria-labelledby="its-the-label"
       error={error ? true : false}
       id="filled-error-helper-text"
-      value={formValue}
+      value={fieldValue}
       helperText={error}
       placeholder={fieldItem.name}
       fullWidth
