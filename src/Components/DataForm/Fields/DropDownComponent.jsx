@@ -4,9 +4,9 @@ import { Validations } from "../../ValidationRules";
 export const DropDownComponent = ({
     fieldItem,
     formValue,
-    validation,
+    error,
     setFormValues,
-    setValidation
+    setError
   }) => (
     <Grid item xs={6}>
       <Stack
@@ -14,7 +14,7 @@ export const DropDownComponent = ({
       spacing={2}
       >
     <label style={{fontWeight: 'bold'}}>{fieldItem.name}</label>
-    <FormControl sx={{ m: 1,width: "100%" }} error={validation ? true : false}>
+    <FormControl sx={{ m: 1,width: "100%" }} error={error ? true : false}>
       <InputLabel id="demo-simple-select-error-label">{fieldItem.name}</InputLabel>
       <Select
         labelId="demo-simple-select-error-label"
@@ -22,9 +22,9 @@ export const DropDownComponent = ({
         value={formValue}
         label={fieldItem.name}
         onClose={(e) => {
-          for (const eachValidation of fieldItem.validation) {
+          for (const eachValidation of fieldItem.validations) {
             if (Validations[eachValidation].fn(e.target.value) == true) {
-              setValidation((prev) => ({
+              setError((prev) => ({
                 ...prev,
                 [fieldItem.id]: Validations[eachValidation].message
               })
@@ -44,7 +44,7 @@ export const DropDownComponent = ({
           <MenuItem value={eachValue}>{eachValue}</MenuItem>
         ))}
       </Select>
-      <FormHelperText>{validation}</FormHelperText>
+      <FormHelperText>{error}</FormHelperText>
     </FormControl>
     </Stack>
     </Grid>

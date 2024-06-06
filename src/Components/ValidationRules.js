@@ -1,9 +1,11 @@
+import { ALPHANUMERIC, EMAIL, NUMERIC, REQUIRED } from "../config";
+
 export const Validations = {
-  "R": {
+  [REQUIRED]: {
     fn: (value) => value == null,
     message: "value is required"
   },
-  "E": {
+  [EMAIL]: {
     fn: (value) => !String(value)
     .toLowerCase()
     .match(
@@ -11,12 +13,12 @@ export const Validations = {
     ),
     message: "Email is not valid"
   },
-  "N": {
+  [NUMERIC]: {
     fn: (value) => isNaN(value),
     message: "Only numerics allowed"
   },
-  "D": {
+  [ALPHANUMERIC]: {
     fn: (value) => !/^[a-zA-Z0-9]+$/.test(value),
-    message: "only Digits are allowed"
+    message: "only AlphaNumerics allowed"
   }   
 }

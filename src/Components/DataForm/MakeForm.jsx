@@ -33,21 +33,21 @@ import { DisplayContext } from "../../Hooks/useDisplay";
   });
 
 export const MakeForm = ({formData}) => {
-  const [validation, setValidation] = useState({});
+  const [error, setError] = useState({});
   const [formValues, setFormValues] = useState({});
   const setDisplayDataForm = useContext(DisplayContext);
 
   const handleSubmit = () => {
-    const tempValidation = {};
+    const tempError = {};
     formData.map((eachItem) => {
-      eachItem.validation.map((eachValidation) => {
+      eachItem.validations.map((eachValidation) => {
         if (Validations[eachValidation].fn(formValues[eachItem.id]) == true) {
-          tempValidation[eachItem.id] = Validations[eachValidation].message;
+          tempError[eachItem.id] = Validations[eachValidation].message;
         }
       });
     });
-    if (Object.keys(tempValidation).length != 0) {
-      setValidation(tempValidation);
+    if (Object.keys(tempError).length != 0) {
+      setError(tempError);
     }
   };
 
@@ -75,10 +75,10 @@ export const MakeForm = ({formData}) => {
             return (
               <MakeField
                 fieldItem={eachItem}
-                validation={validation[eachItem.id]}
+                error={error[eachItem.id]}
                 fieldValue={formValues[eachItem.id]}
                 setFormValues={setFormValues}
-                setValidation={setValidation}
+                setError={setError}
               />
             );
           })}

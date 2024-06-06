@@ -3,10 +3,10 @@ import { Validations } from "../../ValidationRules";
 
 export const TextFieldComponent = ({
     fieldItem,
-    validation,
+    error,
     formValue,
     setFormValues,
-    setValidation
+    setError
   }) => (
     <Grid item xs={6}>
       <Stack
@@ -17,16 +17,16 @@ export const TextFieldComponent = ({
      
     <TextField
       aria-labelledby="its-the-label"
-      error={validation ? true : false}
+      error={error ? true : false}
       id="filled-error-helper-text"
       value={formValue}
-      helperText={validation}
+      helperText={error}
       placeholder={fieldItem.name}
       fullWidth
       onBlur={(e) => {
-        for (const eachValidation of fieldItem.validation) {
+        for (const eachValidation of fieldItem.validations) {
           if (Validations[eachValidation].fn(e.target.value)) {
-            setValidation({
+            setError({
               [fieldItem.id]: Validations[eachValidation].message
             })
             break;

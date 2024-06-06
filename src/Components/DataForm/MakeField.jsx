@@ -10,7 +10,7 @@ const MapToComponent = {
 }
 
 export const MakeField = (props) => {
-  console.log(props)
+
   return (
     <>
     {
