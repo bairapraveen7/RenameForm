@@ -13,6 +13,7 @@ export default function App() {
   return (
     <DisplayContext.Provider value={setDisplayDataForm}>
     <div className="App">
+      <h1>idhi extra royy</h1>
       {displayDataForm == true ? <MakeForm formData={formData} formValues={formValues} setFormValues={setFormValues}/> : <Form setFormData={setFormData}/> }
     </div>
     </DisplayContext.Provider>
